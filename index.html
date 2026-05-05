@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HiLink 星穹守望者 - 数字化获客通用方案</title>
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;700&family=Noto+Sans+SC:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --bg-color: #020617;
+            --accent-color: #deff9a; 
+            --text-color: #f8fafc;
+            --sub-color: #94a3b8;
+            --border-color: #1e293b;
+        }
+
+        body {
+            background-color: #000;
+            color: var(--text-color);
+            font-family: 'Urbanist', 'Noto Sans SC', sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .slide {
+            width: 1280px;
+            height: 720px;
+            background: var(--bg-color);
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            padding: 60px;
+            box-sizing: border-box;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+        }
+
+        .slide::after {
+            content: '';
+            position: absolute;
+            bottom: 40px;
+            left: 60px;
+            right: 60px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent-color), transparent);
+            opacity: 0.3;
+        }
+
+        .platform-tag {
+            position: absolute;
+            top: 40px;
+            right: 60px;
+            font-family: monospace;
+            font-size: 14px;
+            color: var(--sub-color);
+            border: 1px solid var(--border-color);
+            padding: 5px 15px;
+            border-radius: 20px;
+        }
+
+        h1 { font-size: 80px; margin: 0; color: var(--text-color); }
+        h2 { font-size: 48px; border-left: 6px solid var(--accent-color); padding-left: 20px; margin: 0 0 40px 0; }
+        h3 { font-size: 32px; color: var(--accent-color); margin-bottom: 15px; }
+        p { font-size: 22px; color: var(--sub-color); line-height: 1.6; }
+        .accent { color: var(--accent-color); }
+
+        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 40px; }
+        .card { background: rgba(30, 41, 59, 0.5); padding: 30px; border-radius: 20px; border: 1px solid var(--border-color); }
+        .icon { font-size: 40px; color: var(--accent-color); margin-bottom: 20px; }
+
+        .code-box {
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 15px;
+            padding: 30px;
+            font-family: 'Courier New', monospace;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        /* 优化后的 LangGraph 布局 */
+        .logic-grid-optimized {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr;
+            gap: 50px;
+            margin-top: 10px;
+            align-items: start;
+        }
+        .node-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .node-card-mini {
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.6), rgba(15, 23, 42, 0.8));
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid rgba(222, 255, 154, 0.1);
+            position: relative;
+            transition: all 0.3s;
+        }
+        .node-card-mini:hover {
+            border-color: var(--accent-color);
+            background: rgba(30, 41, 59, 0.8);
+        }
+        .node-num {
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            background: var(--accent-color);
+            color: #000;
+            width: 24px;
+            height: 24px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 12px;
+        }
+
+        @media (max-width: 1300px) {
+            .slide { transform: scale(0.7); transform-origin: top center; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="slide" style="justify-content: center; text-align: center;">
+    <div class="platform-tag"><i class="fa-brands fa-tiktok"></i> API_CORE: ACTIVE</div>
+    <h1>HiLink <span class="accent">深度定制智能体</span></h1>
+    <p style="font-size: 26px; letter-spacing: 2px; color: var(--accent-color); margin-top: 20px;">
+        抖音接入 (TikTok) <i class="fa-solid fa-arrow-right"></i> 语义识别 (NLU) <i class="fa-solid fa-arrow-right"></i> 自动回复 (Agent) <i class="fa-solid fa-arrow-right"></i> 线索入库 (CRM)
+    </p>
+    <p style="margin-top: 50px; opacity: 0.8;">24/7 全时接管 · 意向深度锁定 · 企业数字资产构建</p>
+</div>
+
+<div class="slide">
+    <h2>深夜线索：错失的<span class="accent">黄金比例</span></h2>
+    <div style="display: flex; align-items: center; gap: 80px; flex-grow: 1;">
+        <div style="width: 400px; height: 400px; border: 15px solid var(--border-color); border-top-color: var(--accent-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-direction: column;">
+            <span style="font-size: 80px; font-weight: 700;">45%</span>
+            <span style="font-size: 20px;">非工作时间咨询占比</span>
+        </div>
+        <div>
+            <h3>响应时长 = 获客效率</h3>
+            <p>● <span class="accent"><b>20:00 - 08:00</b></span> 平台流量高峰，传统人工响应率为 0</p>
+            <p>● 用户在短视频平台的“即时性”极强，延迟回复即意味着线索注销</p>
+            <p>● <b>自动化接管：</b>将流量流失转化为精准的企业数字资产</p>
+        </div>
+    </div>
+</div>
+
+<div class="slide">
+    <h2>核心算法：<span class="accent">自适应数字化协议</span></h2>
+    <div style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 40px; align-items: center;">
+        <div class="code-box">
+            <p style="color: #64748b; font-size: 16px;"># Star-Sentry Kernel (Generic-v1)</p>
+            <p style="color: var(--accent-color); font-size: 18px;">if user_rounds >= 3:</p>
+            <p style="padding-left: 20px; font-size: 18px;">protocol = "Silent_Watch"</p>
+            <p style="color: var(--accent-color); font-size: 18px;">elif has_contact:</p>
+            <p style="padding-left: 20px; font-size: 18px;">protocol = "Intention_Lock"</p>
+            <p style="color: var(--accent-color); font-size: 18px;">else:</p>
+            <p style="padding-left: 20px; font-size: 18px;">protocol = "Digital_Takeover"</p>
+        </div>
+        <div>
+            <div style="margin-bottom: 20px;">
+                <b class="accent">数字接管</b>：全平台私信秒级响应，基于 BANT 模型智能引导。
+            </div>
+            <div style="margin-bottom: 20px;">
+                <b class="accent">意向加固</b>：自动提取关键联系方式，实时同步至业务系统。
+            </div>
+            <div>
+                <b class="accent">静默守望</b>：识别无效对话阈值，优雅退场以维护账号权重。
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="slide">
+    <h2>底层驱动：<span class="accent">LangGraph 决策状态机</span></h2>
+    <p style="margin-bottom: 30px;">基于真实 Python 代码构建的动态路由系统，实现复杂的业务分流策略。</p>
+    <div class="logic-grid-optimized">
+        <div class="code-box">
+            <div style="margin-bottom: 10px; border-bottom: 1px solid #1e293b; padding-bottom: 10px;">
+                <span style="color: #64748b; font-size: 13px;"># workflow_builder.py</span>
+            </div>
+            <p style="font-size: 15px;"><span class="accent">workflow</span> = StateGraph(AgentState)</p>
+            <p style="font-size: 15px;"><span class="accent">workflow</span>.add_node("gate", gate_node)</p>
+            <p style="font-size: 15px; margin-top: 10px; color: #64748b;"># 条件分流逻辑</p>
+            <p style="font-size: 15px;"><span class="accent">workflow</span>.add_conditional_edges(</p>
+            <p style="padding-left: 20px; font-size: 15px;">"gate", <span style="color: #818cf8;">_route_after_gate</span>,</p>
+            <p style="padding-left: 20px; font-size: 15px;">{"night": "night", "extractor": "extractor"}</p>
+            <p style="font-size: 15px;">)</p>
+            <p style="font-size: 15px; margin-top: 10px;"><span class="accent">workflow</span>.add_conditional_edges(</p>
+            <p style="padding-left: 20px; font-size: 15px;">"decision", <span style="color: #818cf8;">_route_after_decision</span>,</p>
+            <p style="padding-left: 20px; font-size: 15px;">{"reply": "reply", "follow_up": "follow_up"}</p>
+            <p style="font-size: 15px;">)</p>
+        </div>
+        <div class="node-stack">
+            <div class="node-card-mini">
+                <div class="node-num">1</div>
+                <b class="accent" style="font-size: 18px;">Gate & Router</b>
+                <p style="font-size: 15px; margin: 5px 0 0 0;">语义安全网，识别用户意向与时间状态，智能导向不同处理分支。</p>
+            </div>
+            <div class="node-card-mini">
+                <div class="node-num">2</div>
+                <b class="accent" style="font-size: 18px;">Extractor & NLU</b>
+                <p style="font-size: 15px; margin: 5px 0 0 0;">非结构化对话深度解析，自动提取 BANT 线索（预算、权限、需求、时间）。</p>
+            </div>
+            <div class="node-card-mini">
+                <div class="node-num">3</div>
+                <b class="accent" style="font-size: 18px;">Decision Tree</b>
+                <p style="font-size: 15px; margin: 5px 0 0 0;">根据 AgentState 实时状态，智能切换回复话术或继续深入追问引导。</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="slide">
+    <h2>不止于回复，更是<span class="accent">数字生命</span></h2>
+    <div class="grid-3">
+        <div class="card">
+            <div class="icon"><i class="fa-brands fa-tiktok"></i></div>
+            <h3>平台接管</h3>
+            <p>深度适配抖音私信接口，实现 24 小时全天候自动值守与获客接管。</p>
+        </div>
+        <div class="card">
+            <div class="icon"><i class="fa-solid fa-fingerprint"></i></div>
+            <h3>私有化资产</h3>
+            <p>数据直连企业自建 CRM，打造品牌专属的数字化知识大脑。</p>
+        </div>
+        <div class="card">
+            <div class="icon"><i class="fa-solid fa-shield-cat"></i></div>
+            <h3>服务温度</h3>
+            <p>让深夜 12 点的用户感受到专业尊重，建立极高的品牌初印象。</p>
+        </div>
+    </div>
+</div>
+
+<div class="slide" style="justify-content: center; text-align: center;">
+    <h2 style="border: none; font-size: 60px;">Q & A</h2>
+    <p style="font-size: 28px;">HiLink 智能体：接管平台流量，重塑获客逻辑。</p>
+    
+    <div id="demo-trigger" onclick="runHardcoreDemo()" style="margin-top: 40px; cursor: pointer; border: 2px solid var(--accent-color); display: inline-block; padding: 20px 60px; border-radius: 50px; color: var(--accent-color); font-weight: bold; transition: all 0.3s; box-shadow: 0 0 15px rgba(222, 255, 154, 0.2);">
+        启动：抖音私信接管实战模拟
+    </div>
+
+    <div id="demo-console" style="display:none; margin: 30px auto; width: 850px; background: #000; border: 1px solid #1e293b; padding: 25px; text-align: left; font-family: 'Courier New', monospace; font-size: 15px; border-radius: 10px; box-shadow: inset 0 0 30px rgba(0,0,0,1);">
+        <div style="border-bottom: 1px solid #1e293b; padding-bottom: 10px; margin-bottom: 15px; color: #64748b; display: flex; justify-content: space-between;">
+            <span>SYSTEM_TERMINAL_V1.0</span>
+            <span style="color: var(--accent-color);">● ENFORCING_PROTOCOL</span>
+        </div>
+        <div id="console-text" style="height: 220px; overflow: hidden;"></div>
+    </div>
+</div>
+
+<script>
+function runHardcoreDemo() {
+    const consoleBox = document.getElementById('demo-console');
+    const text = document.getElementById('console-text');
+    const btn = document.getElementById('demo-trigger');
+    
+    consoleBox.style.display = 'block';
+    btn.style.opacity = '0.5';
+    btn.style.pointerEvents = 'none';
+    btn.innerText = 'PROTOCAL_RUNNING...';
+    
+    const logs = [
+        { t: "[监听] 等待抖音 Webhook 回调...", c: "#64748b" },
+        { t: "[接入] 收到用户私信: '你好，这款产品现在有现货吗？分期政策如何？'", c: "#f8fafc" },
+        { t: "[内核] 启动 LangGraph 决策流：检测到 Intent: Purchase_Inquiry", c: "#deff9a" },
+        { t: "[内核] 匹配企业知识库：当前供应充足 / 支持 12-24 期灵活免息方案", c: "#deff9a" },
+        { t: "[回复] Agent: '您好！目前现货充足，且支持最高 24 期免息。您可以留个联系方式，我为您发送详细的资料包。'", c: "#deff9a" },
+        { t: "[监听] 用户: '好的，138xxxx8888，发给我吧。'", c: "#f8fafc" },
+        { t: "[提取] 识别到有效联系方式：138****8888 (Intention_Lock 协议触发)", c: "#deff9a" },
+        { t: "[同步] 正在推送至业务 CRM 系统... 状态：成功", c: "#deff9a" },
+        { t: ">> 数字化接管闭环完成。响应用时：850ms", c: "#deff9a" }
+    ];
+    
+    let i = 0;
+    text.innerHTML = "";
+    
+    function addLine() {
+        if(i < logs.length) {
+            const line = document.createElement('div');
+            line.style.marginBottom = '8px';
+            line.style.color = logs[i].c;
+            line.innerHTML = `<span style="color:#1e293b;">[${new Date().toLocaleTimeString()}]</span> ${logs[i].t}`;
+            text.appendChild(line);
+            i++;
+            setTimeout(addLine, 1200);
+        } else {
+            btn.innerText = '演示完成 - 业务线索已接管';
+            btn.style.borderColor = '#deff9a';
+            btn.style.color = '#deff9a';
+        }
+    }
+    addLine();
+}
+</script>
+
+</body>
+</html>
